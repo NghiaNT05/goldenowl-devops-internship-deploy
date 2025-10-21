@@ -3,4 +3,4 @@ resources:
   - service.yaml
   - hpa.yaml
   - ingress.yaml
-  - metric-server.yaml
+  - metrics-server.yaml
