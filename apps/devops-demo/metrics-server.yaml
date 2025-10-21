@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/apps/devops-demo/metrics-server.git
+    repoURL: https://github.com/kubernetes-sigs/metrics-server.git
     targetRevision: HEAD
     path: manifests/base
   destination:
