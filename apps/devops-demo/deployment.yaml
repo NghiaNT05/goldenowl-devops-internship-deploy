@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops-demo
-  labels:
-    app: devops-demo
+  namespace: devops
 spec:
   replicas: 1
   selector:
@@ -16,6 +15,13 @@ spec:
     spec:
       containers:
         - name: devops-demo
-          image: nghiant2005/devops-demo:15b56dcb8e42e2e590673f4eddb06a598934c0d5
+          image: nghiant2005/devops-demo:latest
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "200m"
+              memory: "128Mi"
