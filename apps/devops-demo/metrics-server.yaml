@@ -2,16 +2,25 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: metrics-server
-  namespace: argocd
+  namespace: argocd          # ✅ ArgoCD quản lý app này trong namespace argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/kubernetes-sigs/metrics-server.git
     targetRevision: HEAD
-    path: manifests/base
+    path: manifests/base     # ✅ đúng path mới trong repo
+    kustomize:
+      patches:
+        - target:
+            kind: Deployment
+            name: metrics-server
+          patch: |-
+            - op: add
+              path: /spec/template/spec/containers/0/args/-
+              value: --kubelet-insecure-tls
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: kube-system   # ✅ metrics-server luôn chạy ở namespace này
   syncPolicy:
     automated:
       prune: true
