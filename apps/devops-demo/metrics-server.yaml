@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/apps/devops-demo/metrics-server.git
     targetRevision: HEAD
-    path: deploy/kubernetes
+    path: manifests/base
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
