@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: devops-demo
-          image: nghiant2005/devops-demo:latest
+          image: nghiant2005/devops-demo:171a04ba15bc93f06258420aa24e4bd46b18ead2
           ports:
             - containerPort: 3000
           resources:
